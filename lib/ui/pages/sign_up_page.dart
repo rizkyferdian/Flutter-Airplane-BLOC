@@ -178,7 +178,9 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, "/bonus");
+            },
             child: Text(
               "Submit",
               style: whiteTextStyle.copyWith(
