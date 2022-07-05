@@ -45,7 +45,7 @@ class SignUpPage extends StatelessWidget {
       }
 
       Widget hobbyInput() {
-        return CustomTextFormField(
+        return const CustomTextFormField(
           title: 'Hobby',
           hintText: 'Your Hobby',
         );
