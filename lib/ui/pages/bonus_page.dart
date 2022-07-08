@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:airplane/shared/theme.dart';
 import 'package:airplane/ui/widget/custom_button.dart';
 import 'package:flutter/material.dart';
