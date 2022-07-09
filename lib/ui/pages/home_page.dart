@@ -1,5 +1,7 @@
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/ui/pages/detail_page.dart';
 import 'package:airplane/ui/widget/destination_card.dart';
+import 'package:airplane/ui/widget/destination_tile.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -65,7 +67,7 @@ class HomePage extends StatelessWidget {
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
+            children: const [
               DestinationCard(
                 name: "Lake Ciliwung",
                 city: "Tangerang",
@@ -98,12 +100,50 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget newDestination() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 30,
+          left: defaultMargin,
+          right: defaultMargin,
+          bottom: 100,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "New This Year",
+              style: blackTextStyle.copyWith(
+                fontSize: 18,
+                fontWeight: semiBold,
+              ),
+            ),
+            DestinationTile(
+              name: "Danau Beratan",
+              city: "Singaraja",
+              imageUrl: "assets/image_destination6.png",
+              rating: 4.5,
+            ),
+            DestinationTile(
+              name: "Sidney Opera",
+              city: "Australia",
+              imageUrl: "assets/image_destination7.png",
+              rating: 4.8,
+            ),
+            DestinationTile(
+              name: "Hill Hey",
+              city: "Monaco",
+              imageUrl: "assets/image_destination8.png",
+              rating: 4.5,
+            ),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       body: ListView(
-        children: [
-          header(),
-          popularDestinations(),
-        ],
+        children: [header(), popularDestinations(), newDestination()],
       ),
     );
   }
