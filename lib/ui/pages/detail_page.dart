@@ -1,4 +1,7 @@
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/ui/pages/choose_seat.dart';
+import 'package:airplane/ui/widget/custom_button.dart';
+import 'package:airplane/ui/widget/interest_item.dart';
 import 'package:airplane/ui/widget/photos_item.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +14,7 @@ class DetailPage extends StatelessWidget {
       return Container(
         width: double.infinity,
         height: 450,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage("assets/image_destination1.png"),
@@ -24,7 +27,7 @@ class DetailPage extends StatelessWidget {
       return Container(
         width: double.infinity,
         height: 214,
-        margin: EdgeInsets.only(top: 236),
+        margin: const EdgeInsets.only(top: 236),
         decoration: BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -46,7 +49,7 @@ class DetailPage extends StatelessWidget {
             Container(
               width: 108,
               height: 24,
-              margin: EdgeInsets.only(top: 30),
+              margin: const EdgeInsets.only(top: 30),
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage("assets/icon_emblem.png"),
@@ -54,7 +57,7 @@ class DetailPage extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 256),
+              margin: const EdgeInsets.only(top: 256),
               child: Row(
                 children: [
                   Expanded(
@@ -83,10 +86,10 @@ class DetailPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(right: 3),
+                        margin: const EdgeInsets.only(right: 3),
                         width: 20,
                         height: 20,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage("assets/icon_star.png"),
                           ),
@@ -105,8 +108,8 @@ class DetailPage extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              margin: EdgeInsets.only(top: 30),
-              padding: EdgeInsets.symmetric(
+              margin: const EdgeInsets.only(top: 30),
+              padding: const EdgeInsets.symmetric(
                 vertical: 30,
                 horizontal: 20,
               ),
@@ -124,14 +127,14 @@ class DetailPage extends StatelessWidget {
                     style: blackTextStyle.copyWith(
                         fontSize: 16, fontWeight: semiBold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Text(
                     "Berada di jalur jalan provinsi yang menghubungkan Denpasar Singaraja serta letaknya yang dekat dengan Kebun Raya Eka Karya menjadikan tempat Bali.",
                     style: blackTextStyle.copyWith(height: 1.8),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
@@ -139,17 +142,17 @@ class DetailPage extends StatelessWidget {
                     style: blackTextStyle.copyWith(
                         fontSize: 16, fontWeight: semiBold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Row(
-                    children: [
+                    children: const [
                       PhotoItem(imageUrl: "assets/image_photo1.png"),
                       PhotoItem(imageUrl: "assets/image_photo2.png"),
                       PhotoItem(imageUrl: "assets/image_photo3.png"),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
@@ -157,10 +160,62 @@ class DetailPage extends StatelessWidget {
                     style: blackTextStyle.copyWith(
                         fontSize: 16, fontWeight: semiBold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
-                  Row()
+                  Row(
+                    children: const [
+                      InterestItem(text: "Kids Park"),
+                      InterestItem(text: "Honnor Bridge"),
+                    ],
+                  ),
+                  Row(
+                    children: const [
+                      InterestItem(text: "City Museum"),
+                      InterestItem(text: "Central Mall"),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(vertical: 30),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "IDR 2.500.000",
+                          style: blackTextStyle.copyWith(
+                            fontSize: 16,
+                            fontWeight: medium,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'per orang',
+                          style: greyTextStyle.copyWith(fontWeight: light),
+                        ),
+                      ],
+                    ),
+                  ),
+                  CustomButton(
+                    title: "Book Now",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChooseSeatPage(),
+                        ),
+                      );
+                    },
+                    width: 170,
+                  ),
                 ],
               ),
             ),
@@ -171,7 +226,15 @@ class DetailPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: kBackgroundColor,
-      body: Stack(children: [backgroundImage(), customShadow(), content()]),
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            backgroundImage(),
+            customShadow(),
+            content(),
+          ],
+        ),
+      ),
     );
   }
 }
