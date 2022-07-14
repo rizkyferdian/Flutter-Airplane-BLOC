@@ -1,7 +1,7 @@
 import 'package:airplane/cubit/cubit/page_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../shared/theme.dart';
+import 'package:airplane/shared/theme.dart';
 
 class CustomBottomNavigationItem extends StatelessWidget {
   final int index;
@@ -38,9 +38,7 @@ class CustomBottomNavigationItem extends StatelessWidget {
               color: context.read<PageCubit>().state == index
                   ? kPrimaryColor
                   : kTransparentColor,
-              borderRadius: BorderRadius.circular(
-                18,
-              ),
+              borderRadius: BorderRadius.circular(18),
             ),
           ),
         ],

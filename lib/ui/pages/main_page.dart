@@ -7,6 +7,7 @@ import 'package:airplane/ui/pages/wallet_page.dart';
 import 'package:airplane/ui/widget/custom_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../shared/theme.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -41,11 +42,11 @@ class MainPage extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             color: kWhiteColor,
-            borderRadius: BorderRadius.circular(defaultRadius),
+            borderRadius: BorderRadius.circular(18),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: const [
+            children: [
               CustomBottomNavigationItem(
                 index: 0,
                 imageUrl: 'assets/icon_home.png',
