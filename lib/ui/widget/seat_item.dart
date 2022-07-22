@@ -4,7 +4,12 @@ import '../../shared/theme.dart';
 
 class SeatItem extends StatelessWidget {
   final int status;
-  const SeatItem({Key? key, required this.status}) : super(key: key);
+  final String id;
+  const SeatItem({
+    Key? key,
+    required this.status,
+    required this.id,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
